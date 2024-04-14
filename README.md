@@ -1,5 +1,9 @@
 # Auto-typer for Monkeytype
 
+   <img alt="python" src="https://img.shields.io/badge/python-3776AB?style=flat-square&logo=python&logoColor=black">
+   <img alt="js" src="https://img.shields.io/badge/javascript-F7DF1E?style=flat-square&logo=javascript&logoColor=black">
+
+
 ### Requirements:
 
 - [Python](https://www.python.org/downloads/release/python-3121/) (Use 3.12 if possible, version 3.12 will be the most tested)
