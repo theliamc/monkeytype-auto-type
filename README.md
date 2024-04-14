@@ -1,5 +1,4 @@
 # Auto-typer for Monkeytype
-# DISCLAIMER: STILL A WORK IN PROGRESS, NOT FUNCTIONAL YET, IF READING THIS WAIT ~24 HOURS AND CHECK BACK!
 
 ### Requirements:
 
@@ -34,5 +33,6 @@ python main.py
 ### Notes:
 
 - This opens a local server on port 5000, not changable at the moment
-- May require firefox's geckodriver in requirements section
+- May require Firefox's Geckodriver in requirements section
 - Completely open source or whatever, make as much money or change as you want
+- Currently not that fast (around 260WPM) but speed improvements coming very soon
