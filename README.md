@@ -39,4 +39,4 @@ python main.py
 - This opens a local server on port 5000, not changable at the moment
 - May require Firefox's Geckodriver in requirements section
 - Completely open source or whatever, make as much money or change as you want
-- Currently not that fast (around 260WPM) but speed improvements coming very soon
+- Currently types around 260WPM
