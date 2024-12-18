@@ -16,27 +16,46 @@ if sys.version_info[0] < 3:
 # initialize | get on the website & accept cookies
 driver = webdriver.Firefox()
 driver.get("https://monkeytype.com/")
-driver.find_element(By.XPATH, "/html/body/div[8]/dialog/div[2]/div[2]/div[2]/button[1]").click()
+driver.find_element(By.CLASS_NAME, "rejectAll").click()
 
 def setupTest():
 
     # put textbox on screen
     # put start button on screen
     driver.execute_script("""
-        var delayTextbox = document.createElement("input");
-        delayTextbox.setAttribute("type", "text");
-        delayTextbox.setAttribute("id", "myInput");
-        delayTextbox.setAttribute("placeholder", "Keypress delay (seconds)");
+        if (document.querySelector(".punctuationMode")) {
+            document.querySelector(".punctuationMode").remove();
 
-        var startButton = document.createElement("button");
-        startButton.setAttribute("type", "button");
-        startButton.setAttribute("id", "startBotButton");
-        startButton.textContent = "Start bot";
+            var delayTextbox = document.createElement("input");
+            delayTextbox.setAttribute("type", "text");
+            delayTextbox.setAttribute("id", "myInput");
+            delayTextbox.setAttribute("placeholder", "Key Delay (secs)");
 
-        var targetElement = document.querySelector(".page > div:nth-child(5)");
-        targetElement.appendChild(delayTextbox);
-        targetElement.appendChild(startButton);
+            document.querySelector(".puncAndNum").appendChild(delayTextbox)
+        } else {
+            console.log("couldn't find the punctuation thing to replace with the input box")
+        }
+        if (document.querySelector(".numbersMode")) {
+            document.querySelector(".numbersMode").remove();
+
+            var startButton = document.createElement("button");
+            startButton.setAttribute("type", "button");
+            startButton.setAttribute("id", "startBotButton");
+            startButton.textContent = "Start bot";
+
+            document.querySelector(".puncAndNum").appendChild(startButton)
+        } else {
+            console.log("couldn't find the numbers thing to replace with the start button")
+        }
+        
     """)
+
+    # style textbox and other one
+    driver.execute_script("""
+            // TODO!
+            // TODO!
+            // TODO!
+        """)
 
     # put code for checking text
     # put code for when button is pressed -> trigger python
@@ -101,5 +120,6 @@ def botScript(delay):
 
 if __name__ == "__main__":
     setupTest()
-    print("\n\nIf no errors occurred below, then you can minimize this window unless you're debugging\nIf no errors occurred below, then you can minimize this window unless you're debugging\nIf no errors occurred below, then you can minimize this window unless you're debugging\n\n")
+    for i in range(3):
+        print("\nIf no errors occurred below (other than the 1 red warning for development server), then you can minimize this window unless you're debugging")
     app.run(debug=False)
